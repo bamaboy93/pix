@@ -25,11 +25,7 @@ export default function AppBar() {
   };
   return (
     <>
-      <ListItem
-        sx={{
-          p: "36px 0 0 0",
-        }}
-      >
+      <ListItem sx={{ p: "18px 0" }}>
         <ListItemButton
           onClick={toggleDrawer()}
           sx={{

@@ -2,24 +2,25 @@ import {
   Box,
   Drawer,
   List,
-  Divider,
   ListItem,
   ListItemButton,
   ListItemIcon,
   Tooltip,
 } from "@mui/material";
 
-import SettingsSuggestRoundedIcon from "@mui/icons-material/SettingsSuggestRounded";
-import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
-import LoginIcon from "@mui/icons-material/Login";
-import NotificationsRoundedIcon from "@mui/icons-material/NotificationsRounded";
+import {
+  SettingsSuggestRounded,
+  LogoutRounded,
+  Login,
+  NotificationsRounded,
+} from "@mui/icons-material";
+
 import { SideBox, Logo } from "./Sidebar.styled";
-import { Outlet } from "react-router-dom";
 import AppBar from "../AppBar/AppBar";
 
 const buttons = [
-  { icon: <SettingsSuggestRoundedIcon />, name: "Settings" },
-  { icon: <NotificationsRoundedIcon />, name: "Notifications" },
+  { icon: <SettingsSuggestRounded />, name: "Settings" },
+  { icon: <NotificationsRounded />, name: "Notifications" },
 ];
 
 const user = false;
@@ -33,7 +34,6 @@ const Sidebar = () => {
           flexShrink: 0,
           "& .MuiDrawer-paper": {
             width: 70,
-            boxSizing: "border-box",
           },
         }}
         variant="permanent"
@@ -42,12 +42,11 @@ const Sidebar = () => {
         <SideBox>
           <Logo href="/">PIX</Logo>
         </SideBox>
-        <Divider />
 
         <List>
           <AppBar />
           {buttons.map(({ icon, name }) => (
-            <ListItem key={name} sx={{ p: "12px 0" }}>
+            <ListItem key={name} sx={{ p: "18px 0" }}>
               <ListItemButton
                 sx={{
                   justifyContent: "center",
@@ -63,11 +62,13 @@ const Sidebar = () => {
             </ListItem>
           ))}
         </List>
-        <Divider />
-        <List>
+
+        <List
+          sx={{ height: 1, pb: 6, display: "flex", alignItems: "flex-end" }}
+        >
           <ListItem
             sx={{
-              p: "36px 0 0 0",
+              p: 0,
             }}
           >
             <ListItemButton
@@ -80,20 +81,13 @@ const Sidebar = () => {
             >
               <Tooltip title={user ? "Logout" : "Login"}>
                 <ListItemIcon sx={{ minWidth: 0 }}>
-                  {user ? <LogoutRoundedIcon /> : <LoginIcon />}
+                  {user ? <LogoutRounded /> : <Login />}
                 </ListItemIcon>
               </Tooltip>
             </ListItemButton>
           </ListItem>
         </List>
       </Drawer>
-
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
-      >
-        <Outlet />
-      </Box>
     </Box>
   );
 };
