@@ -1,15 +1,15 @@
 import PropTypes from "prop-types";
+import ImageList from "@mui/material/ImageList";
 import GalleryItem from "../GalleryItem/GalleryItem";
-import { Grid } from "./Gallery.styled";
 
 const Gallery = ({ pictures }) => {
   return (
-    <Grid>
+    <ImageList variant="masonry" cols={3} gap={16}>
       {pictures &&
-        pictures.map(({ id, webformatURL }) => (
-          <GalleryItem key={id} src={webformatURL} />
+        pictures.map((picture) => (
+          <GalleryItem key={picture.id} picture={picture} />
         ))}
-    </Grid>
+    </ImageList>
   );
 };
 

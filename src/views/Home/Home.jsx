@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <Container>
       <Categories />
-      <Gallery pictures={pictures} />
+      {pictures && <Gallery pictures={pictures} />}
     </Container>
   );
 };

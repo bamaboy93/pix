@@ -16,7 +16,7 @@ import {
 } from "@mui/icons-material";
 
 import { SideBox, Logo } from "./Sidebar.styled";
-import AppBar from "../AppBar/AppBar";
+import Menu from "../Menu/Menu";
 
 const buttons = [
   { icon: <SettingsSuggestRounded />, name: "Settings" },
@@ -34,6 +34,7 @@ const Sidebar = () => {
           flexShrink: 0,
           "& .MuiDrawer-paper": {
             width: 70,
+            backgroundColor: "#e2f7c2",
           },
         }}
         variant="permanent"
@@ -44,7 +45,7 @@ const Sidebar = () => {
         </SideBox>
 
         <List>
-          <AppBar />
+          <Menu />
           {buttons.map(({ icon, name }) => (
             <ListItem key={name} sx={{ p: "18px 0" }}>
               <ListItemButton

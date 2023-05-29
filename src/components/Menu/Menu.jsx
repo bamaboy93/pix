@@ -1,7 +1,5 @@
 import { useState } from "react";
-
 import {
-  Box,
   Drawer,
   ListItem,
   ListItemButton,
@@ -9,8 +7,11 @@ import {
   Tooltip,
 } from "@mui/material";
 import WidgetsRoundedIcon from "@mui/icons-material/WidgetsRounded";
+import { Wrapper } from "./Menu.styled";
+import Header from "../Header/Header";
+import SearchWrapper from "../SearchWrapper/SearchWrapper";
 
-export default function AppBar() {
+export default function Menu() {
   const [open, setOpen] = useState(false);
 
   const toggleDrawer = () => (event) => {
@@ -43,13 +44,10 @@ export default function AppBar() {
         </ListItemButton>
       </ListItem>
       <Drawer anchor="top" open={open} onClose={toggleDrawer()}>
-        <Box>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
-          vitae nesciunt fugiat sint corrupti. Facilis excepturi fugiat mollitia
-          illum a, nam repellat reiciendis quasi necessitatibus atque sed,
-          doloremque accusamus nihil amet hic consequuntur laboriosam et modi
-          quis cumque quae voluptatem.
-        </Box>
+        <Wrapper>
+          <Header />
+          <SearchWrapper />
+        </Wrapper>
       </Drawer>
     </>
   );

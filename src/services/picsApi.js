@@ -8,8 +8,8 @@ axios.defaults.params = {
   key: KEY,
   image_type: "photo",
 
-  orientation: "horizontal",
-  per_page: 20,
+  orientation: "all",
+  per_page: 36,
 };
 
 const getImages = async (searchQuery, page) => {
