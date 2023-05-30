@@ -1,20 +1,16 @@
 import PropTypes from "prop-types";
 import ImageList from "@mui/material/ImageList";
-import GalleryItem from "../GalleryItem/GalleryItem";
 
-const Gallery = ({ pictures }) => {
+const Gallery = ({ children }) => {
   return (
     <ImageList variant="masonry" cols={3} gap={16}>
-      {pictures &&
-        pictures.map((picture) => (
-          <GalleryItem key={picture.id} picture={picture} />
-        ))}
+      {children}
     </ImageList>
   );
 };
 
 Gallery.propTypes = {
-  pictures: PropTypes.arrayOf(PropTypes.object),
+  children: PropTypes.node,
 };
 
 export default Gallery;

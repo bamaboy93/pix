@@ -7,15 +7,14 @@ axios.defaults.baseURL = BASE_URL;
 axios.defaults.params = {
   key: KEY,
   image_type: "photo",
-
   orientation: "all",
   per_page: 36,
 };
 
-const getImages = async (searchQuery, page) => {
+const getImages = async (page) => {
   try {
     const { data } = await axios.get("", {
-      params: { q: searchQuery, page },
+      params: { page },
     });
     return data.hits;
   } catch (error) {
@@ -23,8 +22,5 @@ const getImages = async (searchQuery, page) => {
     return [];
   }
 };
-const api = {
-  getImages,
-};
 
-export default api;
+export { getImages };

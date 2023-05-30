@@ -1,5 +1,5 @@
-import { Wrapper } from "./Categories.styled";
-import { Button, Stack } from "@mui/material";
+import { Wrapper, Item } from "./Categories.styled";
+import { Stack } from "@mui/material";
 
 const buttons = [
   { label: "nature" },
@@ -16,19 +16,11 @@ const Categories = () => {
     <Wrapper>
       <Stack spacing={2} direction="row">
         {buttons.map(({ label }) => (
-          <Button variant="outlined" key={label}>
+          <Item variant="outlined" key={label}>
             {label}
-          </Button>
-        ))}
-      </Stack>
-
-      {/* <List>
-        {buttons.map(({ label }) => (
-          <Item key={label}>
-            <Button>{label}</Button>
           </Item>
         ))}
-      </List> */}
+      </Stack>
     </Wrapper>
   );
 };

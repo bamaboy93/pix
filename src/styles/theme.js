@@ -16,7 +16,7 @@ export const theme = {
     white: "#FFFFFF",
     accent: "#89d31a",
     grey: "#cdcdcd",
-    darkgrey: "#676767",
+    darkgrey: "#b3b3b3",
   },
   animation: {
     cubic: "cubic-bezier(0.4, 0, 0.2, 1)",
