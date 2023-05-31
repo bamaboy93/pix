@@ -8,7 +8,6 @@ axios.defaults.params = {
   key: KEY,
   image_type: "photo",
   orientation: "all",
-  per_page: 36,
 };
 
 const getImages = async (page) => {
@@ -16,7 +15,7 @@ const getImages = async (page) => {
     const { data } = await axios.get("", {
       params: { page },
     });
-    return data.hits;
+    return data;
   } catch (error) {
     console.log("error", { error });
     return [];

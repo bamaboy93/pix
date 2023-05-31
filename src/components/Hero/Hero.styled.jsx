@@ -4,5 +4,5 @@ import overlay from "../../assets/overlay.jpg";
 export const Wrapper = styled(Box)(({ theme }) => ({
   backgroundImage: `url(${overlay})`,
   backgroundPosition: "top",
-  height: "80vh",
+  height: "85vh",
 }));
