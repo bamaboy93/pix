@@ -25,7 +25,7 @@ async function getImages(page) {
 async function getImageById(id) {
   try {
     const config = {
-      url: `/photos/:${id}`,
+      url: `/photos/${id}`,
     };
     const { data } = await axios(config, id);
 
