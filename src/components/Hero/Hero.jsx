@@ -4,12 +4,12 @@ import Categories from "../Categories/Categories";
 
 import { Wrapper } from "./Hero.styled";
 
-const Hero = () => {
+const Hero = ({ categories }) => {
   return (
     <Wrapper>
       <AppBar />
       <SearchWrapper />
-      <Categories />
+      <Categories categories={categories} />
     </Wrapper>
   );
 };

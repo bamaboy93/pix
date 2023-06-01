@@ -3,10 +3,10 @@ import { Outlet } from "react-router-dom";
 import { Main } from "./Layout.styled";
 import Hero from "../../components/Hero/Hero";
 
-const Layout = () => {
+const Layout = ({ categories }) => {
   return (
     <Box>
-      <Hero />
+      <Hero categories={categories} />
       <Main>
         <Outlet />
       </Main>

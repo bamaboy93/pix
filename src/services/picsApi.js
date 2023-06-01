@@ -1,25 +1,64 @@
 import axios from "axios";
 
-const KEY = "21959710-45213a65c7eef9dddd44550a5";
-const BASE_URL = `https://pixabay.com/api/`;
+const ACCESS_KEY = "O8rmM6tVxlyUk_64sUD53vJfBznMiS1LdM5Nn6JQC2s";
+const BASE_URL = `https://api.unsplash.com`;
 
 axios.defaults.baseURL = BASE_URL;
 axios.defaults.params = {
-  key: KEY,
-  image_type: "photo",
-  orientation: "all",
+  client_id: ACCESS_KEY,
 };
 
-const getImages = async (page) => {
+async function getImages(page) {
   try {
-    const { data } = await axios.get("", {
+    const config = {
+      url: `/photos`,
       params: { page },
-    });
+    };
+    const { data } = await axios(config);
+
+    return data;
+  } catch (error) {
+    return [];
+  }
+}
+
+async function getImageById(id) {
+  try {
+    const config = {
+      url: `/photos/:${id}`,
+    };
+    const { data } = await axios(config, id);
+
     return data;
   } catch (error) {
     console.log("error", { error });
-    return [];
+    return null;
   }
+}
+
+async function getCategories() {
+  try {
+    const config = {
+      url: `/topics`,
+    };
+    const { data } = await axios(config);
+
+    return data;
+  } catch (error) {
+    return;
+  }
+}
+
+const getImagesByQuery = async (query, page) => {
+  // try {
+  //   const { data } = await axios.get("", {
+  //     params: { page },
+  //   });
+  //   return data;
+  // } catch (error) {
+  //   console.log("error", { error });
+  //   return [];
+  // }
 };
 
-export { getImages };
+export { getImages, getImageById, getCategories, getImagesByQuery };

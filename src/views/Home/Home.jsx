@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
 import { getImages } from "../../services/picsApi";
@@ -10,6 +10,7 @@ import PaginationNotification from "../../components/PaginationNotification/Pagi
 
 const Home = () => {
   const { ref, inView } = useInView();
+
   const {
     data,
     isError,
@@ -17,11 +18,16 @@ const Home = () => {
     isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
-  } = useInfiniteQuery(["pictures"], ({ pageParam = 1 }) =>
-    getImages(pageParam)
+  } = useInfiniteQuery(
+    ["pictures"],
+    ({ pageParam = 1 }) => getImages(pageParam),
+    {
+      getNextPageParam: (lastPage, allPages) => {
+        const nextPage = allPages.length + 1;
+        return lastPage.length !== 0 ? nextPage : undefined;
+      },
+    }
   );
-
-  console.log(data);
 
   useEffect(() => {
     if (inView) {
@@ -34,20 +40,21 @@ const Home = () => {
       {isError && (
         <Alerts message="500 Internal Server Error! Try again later." />
       )}
+
       <Gallery>
         {isSuccess &&
           data.pages.map((page) =>
-            page.hits.map((picture) => (
+            page.map((picture) => (
               <GalleryItem key={picture.id} picture={picture} />
             ))
           )}
+        <div ref={ref}>
+          <PaginationNotification
+            hasNextPage={hasNextPage}
+            isFetchingNextPage={isFetchingNextPage}
+          />
+        </div>
       </Gallery>
-      <div ref={ref}>
-        <PaginationNotification
-          hasNextPage={hasNextPage}
-          isFetchingNextPage={isFetchingNextPage}
-        />
-      </div>
     </Container>
   );
 };

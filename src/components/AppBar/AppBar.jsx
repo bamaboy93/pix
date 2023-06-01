@@ -1,10 +1,5 @@
-import Box from "@mui/material/Box";
-
-import IconButton from "@mui/material/IconButton";
-import Badge from "@mui/material/Badge";
-
+import { Box, IconButton, Badge } from "@mui/material";
 import { AccountCircle, Mail, Notifications } from "@mui/icons-material";
-
 import { Header, Logo } from "./AppBar.styled";
 
 const AppBar = () => {
@@ -15,7 +10,7 @@ const AppBar = () => {
       <Box>
         <IconButton
           size="large"
-          aria-label="show  new mails"
+          aria-label="show new mails"
           color="secondary.dark"
         >
           <Badge badgeContent={1} color="error">

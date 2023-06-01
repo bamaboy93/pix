@@ -6,6 +6,7 @@ export const Wrapper = styled(Box)(({ theme }) => ({
 }));
 
 export const Item = styled(Button)(({ theme }) => ({
+  fontSize: 12,
   color: theme.palette.common.white,
   border: `1px solid ${theme.palette.secondary.light}`,
   transition: theme.transitions.create(["background-color"], {

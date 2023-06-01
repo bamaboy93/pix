@@ -42,43 +42,4 @@ export const Image = styled.img`
 //   // }
 // `;
 
-// export const Item = styled.li`
-//   :nth-child(3) {
-//     grid-row: span 2;
-//   }
-
-//   :nth-child(4) {
-//     grid-column: span 2;
-//   }
-
-//   :nth-child(6) {
-//     grid-row: span 2;
-//   }
-
-//   :nth-child(7) {
-//     grid-row: span 2;
-//     grid-column: span 2;
-//   }
-
-//   :nth-child(10) {
-//     grid-row: span 2;
-//     grid-column: span 2;
-//   }
-
-//   :nth-child(11) {
-//     grid-row: span 2;
-//   }
-
-//   :nth-child(14) {
-//     grid-column: span 2;
-//   }
-
-//   :nth-child(15) {
-//     grid-column: span 2;
-//   }
-
-//   :nth-child(17) {
-//     grid-row: span 2;
-//     grid-column: span 2;
-//   }
-// `;
+export const Item = styled.li``;
