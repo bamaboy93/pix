@@ -1,10 +1,14 @@
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getCategories } from "./services/picsApi";
 
-import Home from "./views/Home/Home";
 import Layout from "./views/Layout/Layout";
-import PicturePage from "./views/PicturePage/PicturePage";
+import { LinearProgress } from "@mui/material";
+
+const HomeView = lazy(() => import("./views/Home/Home"));
+
+const PictureView = lazy(() => import("./views/PicturePage/PicturePage"));
 
 function App() {
   const { isLoading, error, data, isFetching } = useQuery({
@@ -13,12 +17,14 @@ function App() {
   });
 
   return (
-    <Routes>
-      <Route path="/" element={<Layout categories={data} />}>
-        <Route index element={<Home />} />
-      </Route>
-      <Route path="/:pictureId" element={<PicturePage />} />
-    </Routes>
+    <Suspense fallback={<LinearProgress />}>
+      <Routes>
+        <Route path="/" element={<Layout categories={data} />}>
+          <Route path="/" element={<HomeView />} />
+        </Route>
+        <Route path=":pictureId" element={<PictureView />} />
+      </Routes>
+    </Suspense>
   );
 }
 
