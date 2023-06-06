@@ -6,6 +6,8 @@ import Container from "../../components/Container/Container";
 import Alerts from "../../components/Alerts/Alerts";
 import PictureHeader from "../../components/PictureHeader/PictureHeader";
 import PictureWrapper from "../../components/PictureWrapper/PictureWrapper";
+import PictureInfo from "../../components/PictureInfo/PictureInfo";
+import PageHeading from "../../components/PageHeading/PageHeading";
 
 const PicturePage = () => {
   const { pictureId } = useParams();
@@ -27,8 +29,9 @@ const PicturePage = () => {
       {isSuccess && (
         <>
           <PictureHeader user={data.user} />
-          <PictureWrapper picture={data.urls.raw} alt={data.alt_description} />
-          {/* <img src={data.urls.regular} alt="pic" /> */}
+          <PageHeading title={data.description} />
+          <PictureWrapper picture={data.urls} alt={data.alt_description} />
+          <PictureInfo picture={data} />
         </>
       )}
     </Container>

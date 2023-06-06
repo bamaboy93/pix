@@ -1,9 +1,11 @@
-import { Wrapper, Image } from "./PictureWrapper.styled";
+import { Wrapper, Image, ImageWrapper } from "./PictureWrapper.styled";
 
 const PictureWrapper = ({ picture, alt }) => {
   return (
     <Wrapper>
-      <Image src={picture} srcSet={picture + "&w=1500&dpr=2"} alt={alt} />
+      <ImageWrapper>
+        <Image src={picture.regular} alt={alt} />
+      </ImageWrapper>
     </Wrapper>
   );
 };

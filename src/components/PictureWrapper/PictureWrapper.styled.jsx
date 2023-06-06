@@ -3,14 +3,15 @@ import { Box, styled as muiStyled } from "@mui/material";
 import styled from "@emotion/styled";
 
 export const Wrapper = muiStyled(Box)(({ theme }) => ({
-  maxHeight: "75vh",
-  minHeight: "300px",
-  maxWidth: "calc(99.9738vh)",
-  minWidth: "calc(199.895px)",
-
-  marginRight: "auto",
-  marginLeft: "auto",
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
   marginTop: theme.spacing(6),
+}));
+
+export const ImageWrapper = muiStyled(Box)(({ theme }) => ({
+  width: "100wv",
+  height: "70vh",
 }));
 
 export const Image = styled.img`

@@ -1,13 +1,17 @@
 import { useState } from "react";
-import { Avatar, Button, Stack, Tooltip, Typography } from "@mui/material";
+import { Avatar, Stack, Tooltip, Typography } from "@mui/material";
 import {
   LibraryAddOutlined,
   LibraryAddCheck,
-  Favorite,
   FavoriteBorder,
 } from "@mui/icons-material";
 
-import { AuthorInfo, Header, MuiButton } from "./PictureHeader.styled";
+import {
+  AuthorInfo,
+  Header,
+  MuiButton,
+  StyledFavIcon,
+} from "./PictureHeader.styled";
 import DownloadButton from "../DownloadButton/DownloadButton";
 
 const PictureHeader = ({ user }) => {
@@ -24,7 +28,7 @@ const PictureHeader = ({ user }) => {
           <MuiButton
             onClick={() => setFavorite(!favorite)}
             variant="outlined"
-            startIcon={favorite ? <Favorite /> : <FavoriteBorder />}
+            startIcon={favorite ? <StyledFavIcon /> : <FavoriteBorder />}
           >
             Like
           </MuiButton>
