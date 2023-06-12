@@ -1,17 +1,26 @@
-import Typography from "@mui/material/Typography";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Link from "@mui/material/Link";
+import { useNavigate } from "react-router-dom";
+import { Breadcrumbs, Link, Typography } from "@mui/material";
 import { Wrapper } from "./PageHeading.styled";
 
 const PageHeading = ({ title }) => {
+  const navigate = useNavigate();
+
   return (
     <Wrapper>
       <Breadcrumbs aria-label="breadcrumb">
-        <Link underline="hover" color="inherit" href="/">
-          Home
+        <Link
+          onClick={(e) => {
+            e.preventDefault();
+            navigate(-1);
+          }}
+          underline="hover"
+          color="inherit"
+          sx={{ cursor: "pointer" }}
+        >
+          Back
         </Link>
         <Typography color="text.primary">
-          {title ? title : "Picture"}
+          {title ? title.split(" ").slice(0, 3).join(" ") : "Picture"}
         </Typography>
       </Breadcrumbs>
     </Wrapper>

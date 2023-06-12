@@ -1,8 +1,8 @@
 import { Box, IconButton, Badge } from "@mui/material";
 import { AccountCircle, Mail, Notifications } from "@mui/icons-material";
-import { Header, Logo } from "./AppBar.styled";
+import { Header, Logo } from "./HeroAppBar.styled";
 
-const AppBar = () => {
+const HeroAppBar = () => {
   return (
     <Header>
       <Logo>PIX</Logo>
@@ -39,4 +39,4 @@ const AppBar = () => {
   );
 };
 
-export default AppBar;
+export default HeroAppBar;

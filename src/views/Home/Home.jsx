@@ -1,7 +1,6 @@
 import { useEffect } from "react";
-import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
-import { getImages } from "../../services/picsApi";
+import { usePicturesQuery } from "../../hooks/useInfiniteQueries";
 import Gallery from "../../components/Gallery/Gallery";
 import Container from "../../components/Container/Container";
 import GalleryItem from "../../components/GalleryItem/GalleryItem";
@@ -18,22 +17,15 @@ const Home = () => {
     isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
-  } = useInfiniteQuery(
-    ["pictures"],
-    ({ pageParam = 1 }) => getImages(pageParam),
-    {
-      getNextPageParam: (lastPage, allPages) => {
-        const nextPage = allPages.length + 1;
-        return lastPage.length !== 0 ? nextPage : undefined;
-      },
-    }
-  );
+  } = usePicturesQuery();
 
   useEffect(() => {
     if (inView) {
       fetchNextPage();
     }
   }, [inView, fetchNextPage]);
+
+  console.log(data);
 
   return (
     <Container>

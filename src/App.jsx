@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getCategories } from "./services/picsApi";
@@ -8,9 +8,19 @@ import { LinearProgress } from "@mui/material";
 
 const HomeView = lazy(() => import("./views/Home/Home"));
 
+const SearchView = lazy(() => import("./views/Search/Search"));
+
 const PictureView = lazy(() => import("./views/PicturePage/PicturePage"));
 
 function App() {
+  const [query, setQuery] = useState("");
+
+  const handleFormSubmit = (newQuery) => {
+    if (newQuery === query) return;
+
+    setQuery(newQuery);
+  };
+
   const { isLoading, error, data, isFetching } = useQuery({
     queryKey: ["categories"],
     queryFn: () => getCategories(),
@@ -19,10 +29,16 @@ function App() {
   return (
     <Suspense fallback={<LinearProgress />}>
       <Routes>
-        <Route path="/" element={<Layout categories={data} />}>
-          <Route path="/" element={<HomeView />} />
+        <Route
+          path="/"
+          element={<Layout categories={data} onSubmit={handleFormSubmit} />}
+        >
+          <Route path="/" element={<HomeView query={query} />} />
         </Route>
         <Route path=":pictureId" element={<PictureView />} />
+
+        <Route path="search" element={<SearchView />} />
+        <Route path="search/:pictureId" element={<PictureView />} />
       </Routes>
     </Suspense>
   );

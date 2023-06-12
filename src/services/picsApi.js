@@ -50,15 +50,17 @@ async function getCategories() {
 }
 
 const getImagesByQuery = async (query, page) => {
-  // try {
-  //   const { data } = await axios.get("", {
-  //     params: { page },
-  //   });
-  //   return data;
-  // } catch (error) {
-  //   console.log("error", { error });
-  //   return [];
-  // }
+  try {
+    const config = {
+      url: `/search/photos`,
+      params: { query, page },
+    };
+    const { data } = await axios(config);
+
+    return data.results;
+  } catch (error) {
+    return [];
+  }
 };
 
 export { getImages, getImageById, getCategories, getImagesByQuery };
