@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import { Avatar, Stack, Tooltip, Typography } from "@mui/material";
 import {
   LibraryAddOutlined,
@@ -17,6 +18,7 @@ import DownloadButton from "../DownloadButton/DownloadButton";
 const PictureHeader = ({ user }) => {
   const [favorite, setFavorite] = useState(false);
   const [add, setAdd] = useState(false);
+
   return (
     <Header>
       <AuthorInfo>
@@ -47,6 +49,15 @@ const PictureHeader = ({ user }) => {
       </Stack>
     </Header>
   );
+};
+
+PictureHeader.propTypes = {
+  user: PropTypes.shape({
+    profile_image: PropTypes.shape({
+      large: PropTypes.string,
+    }),
+    username: PropTypes.string,
+  }),
 };
 
 export default PictureHeader;

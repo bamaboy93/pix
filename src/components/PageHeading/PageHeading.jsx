@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { Breadcrumbs, Link, Typography } from "@mui/material";
 import { Wrapper } from "./PageHeading.styled";
@@ -25,6 +26,10 @@ const PageHeading = ({ title }) => {
       </Breadcrumbs>
     </Wrapper>
   );
+};
+
+PageHeading.propTypes = {
+  title: PropTypes.string,
 };
 
 export default PageHeading;

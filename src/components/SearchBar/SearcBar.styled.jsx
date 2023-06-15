@@ -41,6 +41,7 @@ export const Button = styled.button`
   width: 42px;
   color: ${(props) => props.theme.colors.white};
   background-color: ${(props) => props.theme.colors.darkgrey};
+  cursor: pointer;
 
   -webkit-transition: background-color 500ms ease;
   transition: all 500ms ease;

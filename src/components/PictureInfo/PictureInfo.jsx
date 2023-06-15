@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Stack, Link } from "@mui/material";
 import GallerySimilar from "../GallerySimilar/GallerySimilar";
 import GalleryItem from "../GalleryItem/GalleryItem";
@@ -5,6 +6,7 @@ import { InfoWrapper, Tags } from "./PictureInfo.styled";
 
 const PictureInfo = ({ picture }) => {
   const { tags, related_collections } = picture;
+
   return (
     <InfoWrapper>
       <Tags>
@@ -25,6 +27,19 @@ const PictureInfo = ({ picture }) => {
       </GallerySimilar>
     </InfoWrapper>
   );
+};
+
+PictureInfo.propTypes = {
+  picture: PropTypes.shape({
+    tags: PropTypes.arrayOf(PropTypes.shape({ title: PropTypes.string })),
+    related_collections: PropTypes.shape({
+      results: PropTypes.arrayOf(
+        PropTypes.shape({
+          preview_photos: PropTypes.arrayOf(PropTypes.shape({})),
+        })
+      ),
+    }),
+  }),
 };
 
 export default PictureInfo;

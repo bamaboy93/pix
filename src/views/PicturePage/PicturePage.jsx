@@ -17,8 +17,6 @@ const PicturePage = () => {
     queryFn: () => getImageById(pictureId),
   });
 
-  console.log(data);
-
   return (
     <Container>
       {isLoading && <LinearProgress />}

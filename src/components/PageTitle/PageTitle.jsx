@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Typography } from "@mui/material";
 import { Wrapper } from "./PageTitle.styled";
 
@@ -9,6 +10,10 @@ const PageTitle = ({ keyword }) => {
       </Typography>
     </Wrapper>
   );
+};
+
+PageTitle.propTypes = {
+  keyword: PropTypes.string,
 };
 
 export default PageTitle;

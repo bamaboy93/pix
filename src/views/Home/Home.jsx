@@ -25,8 +25,6 @@ const Home = () => {
     }
   }, [inView, fetchNextPage]);
 
-  console.log(data);
-
   return (
     <Container>
       {isError && (

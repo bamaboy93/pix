@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { Wrapper, Item } from "./Categories.styled";
 import { Stack } from "@mui/material";
 
@@ -13,6 +14,15 @@ const Categories = ({ categories }) => {
       </Stack>
     </Wrapper>
   );
+};
+
+Categories.propTypes = {
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default Categories;
