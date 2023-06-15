@@ -9,7 +9,6 @@ import Container from "../../components/Container/Container";
 import GalleryItem from "../../components/GalleryItem/GalleryItem";
 import Alerts from "../../components/Alerts/Alerts";
 import PaginationNotification from "../../components/PaginationNotification/PaginationNotification";
-import PageTitle from "../../components/PageTitle/PageTitle";
 import AppBar from "../../components/MainAppBar/MainAppBar";
 import PageHeading from "../../components/PageHeading/PageHeading";
 

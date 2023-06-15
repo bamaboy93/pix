@@ -1,8 +1,22 @@
-import { styled as muiStyled, alpha } from "@mui/material/styles";
-import { InputBase } from "@mui/material";
-import styled from "@emotion/styled";
+import { styled, alpha } from "@mui/material/styles";
+import { NavLink } from "react-router-dom";
+import { AppBar, Box, InputBase } from "@mui/material";
 
-export const Search = muiStyled("div")(({ theme }) => ({
+export const AppBarLine = styled(AppBar)(({ theme, visible }) => ({
+  height: "65px",
+  top: visible ? "0" : "-65px",
+  backgroundColor: theme.palette.primary.light,
+  transition: "top 0.4s ease-out",
+}));
+
+export const Logo = styled(NavLink)(({ theme }) => ({
+  fontFamily: theme.typography.logoFont,
+  fontWeight: "bold",
+  fontSize: "24px",
+  color: theme.palette.common.black,
+}));
+
+export const Form = styled("form")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -14,7 +28,7 @@ export const Search = muiStyled("div")(({ theme }) => ({
   width: "100%",
 }));
 
-export const SearchIconWrapper = muiStyled("div")(({ theme }) => ({
+export const SearchIconWrapper = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 2),
   height: "100%",
   position: "absolute",
@@ -24,7 +38,7 @@ export const SearchIconWrapper = muiStyled("div")(({ theme }) => ({
   justifyContent: "center",
 }));
 
-export const StyledInputBase = muiStyled(InputBase)(({ theme }) => ({
+export const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   width: "100%",
   "& .MuiInputBase-input": {
@@ -34,10 +48,16 @@ export const StyledInputBase = muiStyled(InputBase)(({ theme }) => ({
   },
 }));
 
-export const Logo = styled.a`
-  font-family: ${(props) => props.theme.fonts.logo};
-  font-weight: ${(props) => props.theme.fontWeights.bold};
-  font-size: ${(props) => props.theme.fontSizes.l};
-  line-height: ${(props) => props.theme.lineHeights.heading};
-  color: ${(props) => props.theme.colors.black};
-`;
+export const Actions = styled(Box)(({ theme }) => ({
+  display: "none",
+  [theme.breakpoints.up("md")]: {
+    display: "flex",
+  },
+}));
+
+export const MobileActions = styled(Box)(({ theme }) => ({
+  display: "flex",
+  [theme.breakpoints.up("md")]: {
+    display: "none",
+  },
+}));

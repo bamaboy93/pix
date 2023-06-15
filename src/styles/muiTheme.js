@@ -21,6 +21,9 @@ export const muiTheme = createTheme({
       dark: "#b3b3b3",
     },
   },
+  typography: {
+    logoFont: "'Lilita One', cursive",
+  },
 
   //   components: {
   //     MuiPaper: {
