@@ -41,30 +41,27 @@ const Search = () => {
   }, [inView, fetchNextPage]);
 
   return (
-    <>
-      <AppBar />
-      <Container>
-        <PageHeading title={useFormat(searchQuery)} />
-        {isError && (
-          <Alerts message="500 Internal Server Error! Try again later." />
-        )}
+    <Container>
+      <PageHeading title={useFormat(searchQuery)} />
+      {isError && (
+        <Alerts message="500 Internal Server Error! Try again later." />
+      )}
 
-        <Gallery>
-          {isSuccess &&
-            data.pages.map((page) =>
-              page.map((picture) => (
-                <GalleryItem key={picture.id} picture={picture} />
-              ))
-            )}
-          <div ref={ref}>
-            <PaginationNotification
-              hasNextPage={hasNextPage}
-              isFetchingNextPage={isFetchingNextPage}
-            />
-          </div>
-        </Gallery>
-      </Container>
-    </>
+      <Gallery>
+        {isSuccess &&
+          data.pages.map((page) =>
+            page.map((picture) => (
+              <GalleryItem key={picture.id} picture={picture} />
+            ))
+          )}
+        <div ref={ref}>
+          <PaginationNotification
+            hasNextPage={hasNextPage}
+            isFetchingNextPage={isFetchingNextPage}
+          />
+        </div>
+      </Gallery>
+    </Container>
   );
 };
 
