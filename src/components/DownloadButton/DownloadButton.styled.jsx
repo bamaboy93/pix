@@ -4,8 +4,8 @@ export const StyledSpeedDial = styled(SpeedDial)(({ theme }) => ({
   position: "absolute",
 
   "&.MuiSpeedDial-directionDown, &.MuiSpeedDial-directionRight": {
-    top: "2px",
-    right: 0,
+    top: "13.5px",
+    right: "36px",
   },
   "& .MuiFab-primary": {
     width: 64,

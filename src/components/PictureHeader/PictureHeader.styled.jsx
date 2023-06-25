@@ -1,23 +1,18 @@
-import styled from "@emotion/styled";
-
-import { Button, styled as muiStyled } from "@mui/material";
+import { AppBar, Box, Button, styled } from "@mui/material";
 import { Favorite } from "@mui/icons-material";
 
-export const Header = styled.header`
-  position: relative;
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 60px;
-`;
+export const Header = styled(AppBar)(({ theme }) => ({
+  backgroundColor: "transparent",
+  boxShadow: "none",
+}));
 
-export const AuthorInfo = styled.div`
-  display: flex;
-  align-items: center;
-`;
+export const AuthorInfo = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexGrow: 1,
+  alignItems: "center",
+}));
 
-export const MuiButton = muiStyled(Button)(({ theme }) => ({
+export const MuiButton = styled(Button)(({ theme }) => ({
   fontWeight: "bold",
   backgroundColor: theme.palette.primary.main,
   color: theme.palette.common.white,

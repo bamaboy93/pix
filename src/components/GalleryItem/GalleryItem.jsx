@@ -1,6 +1,6 @@
 import PropTypes, { shape } from "prop-types";
 import { Link } from "react-router-dom";
-import { ImageListItem } from "@mui/material";
+import { ImageListItem, Paper } from "@mui/material";
 
 import { Image } from "./GalleryItem.styled";
 
@@ -10,7 +10,9 @@ const GalleryItem = ({ picture }) => {
   return (
     <ImageListItem>
       <Link to={`/${picture.id}`}>
-        <Image src={regular} alt={alt_description} />
+        <Paper elevation={3}>
+          <Image src={regular} alt={alt_description} />
+        </Paper>
       </Link>
     </ImageListItem>
   );

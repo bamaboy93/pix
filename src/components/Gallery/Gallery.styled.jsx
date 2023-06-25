@@ -1,9 +1,8 @@
-import styled from "@emotion/styled";
+import { Box, styled } from "@mui/material";
 
-export const Grid = styled.ul`
-  display: grid;
-  grid-gap: 0.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-auto-rows: 250px;
-  grid-auto-flow: dense;
-`;
+export const Container = styled(Box)(({ theme }) => ({
+  marginTop: theme.spacing(6),
+  marginBottom: theme.spacing(5),
+  marginLeft: theme.spacing(2),
+  marginRight: theme.spacing(2),
+}));

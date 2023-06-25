@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { Avatar, Stack, Tooltip, Typography } from "@mui/material";
+import { Avatar, Stack, Toolbar, Tooltip, Typography } from "@mui/material";
 import {
   LibraryAddOutlined,
   LibraryAddCheck,
@@ -20,33 +20,35 @@ const PictureHeader = ({ user }) => {
   const [add, setAdd] = useState(false);
 
   return (
-    <Header>
-      <AuthorInfo>
-        <Avatar alt="none" src={user.profile_image.large} sx={{ mr: 3 }} />
-        <Typography variant="body">{user.username}</Typography>
-      </AuthorInfo>
-      <Stack direction="row" spacing={2}>
-        <Tooltip title="Like Picture">
-          <MuiButton
-            onClick={() => setFavorite(!favorite)}
-            variant="outlined"
-            startIcon={favorite ? <StyledFavIcon /> : <FavoriteBorder />}
-          >
-            Like
-          </MuiButton>
-        </Tooltip>
+    <Header position="relative">
+      <Toolbar>
+        <AuthorInfo>
+          <Avatar alt="none" src={user.profile_image.large} sx={{ mr: 2 }} />
+          <Typography variant="body">{user.username}</Typography>
+        </AuthorInfo>
+        <Stack direction="row" spacing={2} sx={{ mr: 12 }}>
+          <Tooltip title="Like Picture">
+            <MuiButton
+              onClick={() => setFavorite(!favorite)}
+              variant="outlined"
+              startIcon={favorite ? <StyledFavIcon /> : <FavoriteBorder />}
+            >
+              Like
+            </MuiButton>
+          </Tooltip>
 
-        <Tooltip title="Add to collection">
-          <MuiButton
-            onClick={() => setAdd(!add)}
-            variant="outlined"
-            endIcon={add ? <LibraryAddCheck /> : <LibraryAddOutlined />}
-          >
-            Add To Collection
-          </MuiButton>
-        </Tooltip>
+          <Tooltip title="Add to collection">
+            <MuiButton
+              onClick={() => setAdd(!add)}
+              variant="outlined"
+              endIcon={add ? <LibraryAddCheck /> : <LibraryAddOutlined />}
+            >
+              Add To Collection
+            </MuiButton>
+          </Tooltip>
+        </Stack>
         <DownloadButton />
-      </Stack>
+      </Toolbar>
     </Header>
   );
 };

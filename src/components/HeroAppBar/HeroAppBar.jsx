@@ -5,7 +5,7 @@ import { Header, Logo } from "./HeroAppBar.styled";
 const HeroAppBar = () => {
   return (
     <Header>
-      <Logo>PIX</Logo>
+      <Logo underline="none">PIX</Logo>
 
       <Box>
         <IconButton

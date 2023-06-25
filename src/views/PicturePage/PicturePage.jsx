@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { LinearProgress } from "@mui/material";
 import { getImageById } from "../../services/picsApi";
-import Container from "../../components/Container/Container";
+
 import Alerts from "../../components/Alerts/Alerts";
 import PictureHeader from "../../components/PictureHeader/PictureHeader";
 import PictureWrapper from "../../components/PictureWrapper/PictureWrapper";
@@ -18,7 +18,7 @@ const PicturePage = () => {
   });
 
   return (
-    <Container>
+    <>
       {isLoading && <LinearProgress />}
       {isError && (
         <Alerts message="500 Internal Server Error! Try again later." />
@@ -32,7 +32,7 @@ const PicturePage = () => {
           <PictureInfo picture={data} />
         </>
       )}
-    </Container>
+    </>
   );
 };
 

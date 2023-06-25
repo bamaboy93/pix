@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { usePicturesQuery } from "../../hooks/useInfiniteQueries";
 import Gallery from "../../components/Gallery/Gallery";
-import Container from "../../components/Container/Container";
 import GalleryItem from "../../components/GalleryItem/GalleryItem";
 import Alerts from "../../components/Alerts/Alerts";
 import PaginationNotification from "../../components/PaginationNotification/PaginationNotification";
@@ -26,7 +25,7 @@ const Home = () => {
   }, [inView, fetchNextPage]);
 
   return (
-    <Container>
+    <>
       {isError && (
         <Alerts message="500 Internal Server Error! Try again later." />
       )}
@@ -45,7 +44,7 @@ const Home = () => {
           />
         </div>
       </Gallery>
-    </Container>
+    </>
   );
 };
 
