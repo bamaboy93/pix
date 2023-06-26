@@ -5,11 +5,9 @@ import { useSearchQuery } from "../../hooks/useInfiniteQueries";
 import { useFormat } from "../../hooks/useFormat";
 
 import Gallery from "../../components/Gallery/Gallery";
-import Container from "../../components/Container/Container";
 import GalleryItem from "../../components/GalleryItem/GalleryItem";
 import Alerts from "../../components/Alerts/Alerts";
 import PaginationNotification from "../../components/PaginationNotification/PaginationNotification";
-import AppBar from "../../components/MainAppBar/MainAppBar";
 import PageHeading from "../../components/PageHeading/PageHeading";
 
 const Search = () => {
@@ -41,7 +39,7 @@ const Search = () => {
   }, [inView, fetchNextPage]);
 
   return (
-    <Container>
+    <>
       <PageHeading title={useFormat(searchQuery)} />
       {isError && (
         <Alerts message="500 Internal Server Error! Try again later." />
@@ -61,7 +59,7 @@ const Search = () => {
           />
         </div>
       </Gallery>
-    </Container>
+    </>
   );
 };
 
