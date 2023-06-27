@@ -10,13 +10,13 @@ const Layout = ({ categories, show = [] }) => {
   const { pathname } = useLocation();
 
   return (
-    <Box>
+    <>
       {!show.includes(pathname) && <MainAppBar />}
       {show.includes(pathname) && <Hero categories={categories} />}
       <Main>
         <Outlet />
       </Main>
-    </Box>
+    </>
   );
 };
 

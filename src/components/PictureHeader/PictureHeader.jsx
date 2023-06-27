@@ -23,7 +23,11 @@ const PictureHeader = ({ user }) => {
     <Header position="relative">
       <Toolbar>
         <AuthorInfo>
-          <Avatar alt="none" src={user.profile_image.large} sx={{ mr: 2 }} />
+          <Avatar
+            alt="user avatar"
+            src={user.profile_image.large}
+            sx={{ mr: 2 }}
+          />
           <Typography variant="body">{user.username}</Typography>
         </AuthorInfo>
         <Stack direction="row" spacing={2} sx={{ mr: 12 }}>

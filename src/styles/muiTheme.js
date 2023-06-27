@@ -1,14 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 
 export const muiTheme = createTheme({
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 900,
-      lg: 1200,
-    },
-  },
   palette: {
     primary: {
       light: "#b7ec67",
@@ -24,15 +16,4 @@ export const muiTheme = createTheme({
   typography: {
     logoFont: "'Lilita One', cursive",
   },
-
-  //   components: {
-  //     MuiPaper: {
-  //       styleOverrides: {
-  //         root: {
-  //           backgroundColor: "#3B3B3B",
-  //           color: "#fff",
-  //         },
-  //       },
-  //     },
-  //   },
 });
